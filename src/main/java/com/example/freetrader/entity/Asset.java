@@ -13,11 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Assets {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Asset {
 
     @Id
     @UuidGenerator
-    String id;
+    private String id;
 
     private Integer rank;
 

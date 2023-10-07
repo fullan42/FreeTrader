@@ -23,7 +23,7 @@ public class Category {
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "asset_id")
     )
-    private List<Assets> assetsList;
+    private List<Asset> assetsList;
 
     private String name;
 
