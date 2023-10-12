@@ -31,6 +31,12 @@ public class Market {
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Index> indexList;
 
+    @OneToMany(mappedBy = "market",cascade = CascadeType.DETACH,orphanRemoval = true)
+    private List<Stock> stockList;
+
+    @OneToMany(mappedBy = "market",cascade = CascadeType.DETACH,orphanRemoval = true)
+    private List<ETF> ETFList;
+
     private Integer numberOfListings;
 
 }

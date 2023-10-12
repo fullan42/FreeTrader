@@ -1,6 +1,9 @@
 package com.example.freetrader.entity;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@DiscriminatorValue("2")
 public class Stock extends Asset {
-    public Stock(String id, Integer rank, String openPrice, String volume, String dayLow,
-                 String dayHigh, String week52Low, String week52High, String assetsUnderManagement,
-                 String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year,
-                 Integer year, List<Category> categories, Client client, String pERatio, String pSRatio, String operatingMargin,
-                 String ePS, String stockSplits, String dividends, String dividendYield, String sharesOutstanding, String failsToDeliver,
-                 String costToBorrow, String totalAssets, String totalLiabilities, String totalDebt, String cashOnHand, String netAssets) {
-        super(id, rank, openPrice, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, client);
+
+    public Stock(String id, Integer rank, String openPrice, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year, List<Category> categories, Market market, Client client, String pERatio, String pSRatio, String operatingMargin, String ePS, String stockSplits, String dividends, String dividendYield, String sharesOutstanding, String failsToDeliver, String costToBorrow, String totalAssets, String totalLiabilities, String totalDebt, String cashOnHand, String netAssets) {
+        super(id, rank, openPrice, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, market, client);
         this.pERatio = pERatio;
         this.pSRatio = pSRatio;
         this.operatingMargin = operatingMargin;
@@ -65,4 +65,6 @@ public class Stock extends Asset {
     private String cashOnHand;
 
     private String netAssets;
+
+
 }

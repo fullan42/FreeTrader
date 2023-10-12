@@ -6,5 +6,10 @@ import org.hibernate.annotations.UuidGenerator;
 public class Currency {
     @Id
     @UuidGenerator
-    String id;
+    private String id;
+
+    private String name;
+
+    private String exchangeRate;
+
 }

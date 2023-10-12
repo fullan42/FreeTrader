@@ -53,6 +53,9 @@ public class Asset {
     @ManyToMany(mappedBy = "assetsList")
     private List<Category> categories;
 
+    @ManyToOne(cascade = CascadeType.DETACH)
+    private Market market;
+
     @ManyToOne
     private Client client;
 }
