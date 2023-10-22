@@ -18,23 +18,6 @@ import java.util.List;
 @DiscriminatorValue("4")
 public class ETF extends Asset {
 
-    public ETF(String id, Integer rank, String openPrice, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year, List<Category> categories, Market market, Client client, String issuer, String brand, String expenseRatio, Date inception, String trackedThing, String assetClass, String assetClassSize, String assetClassStyle, String regionGeneral, String regionSpecific, String segmentEquity, String categorySizeStyle, String strategy, String weightingScheme) {
-        super(id, rank, openPrice, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, market, client);
-        this.issuer = issuer;
-        this.brand = brand;
-        this.expenseRatio = expenseRatio;
-        this.inception = inception;
-        this.trackedThing = trackedThing;
-        this.assetClass = assetClass;
-        this.assetClassSize = assetClassSize;
-        this.assetClassStyle = assetClassStyle;
-        this.regionGeneral = regionGeneral;
-        this.regionSpecific = regionSpecific;
-        this.segmentEquity = segmentEquity;
-        this.categorySizeStyle = categorySizeStyle;
-        this.strategy = strategy;
-        this.weightingScheme = weightingScheme;
-    }
 
     private String issuer;
 
@@ -65,5 +48,21 @@ public class ETF extends Asset {
     private String weightingScheme;
 
 
-
+    public ETF(String id, String name, Integer rank, String openPrice, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year, List<Category> categories, Market market, Client client, String issuer, String brand, String expenseRatio, Date inception, String trackedThing, String assetClass, String assetClassSize, String assetClassStyle, String regionGeneral, String regionSpecific, String segmentEquity, String categorySizeStyle, String strategy, String weightingScheme) {
+        super(id, name, rank, openPrice, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, market, client);
+        this.issuer = issuer;
+        this.brand = brand;
+        this.expenseRatio = expenseRatio;
+        this.inception = inception;
+        this.trackedThing = trackedThing;
+        this.assetClass = assetClass;
+        this.assetClassSize = assetClassSize;
+        this.assetClassStyle = assetClassStyle;
+        this.regionGeneral = regionGeneral;
+        this.regionSpecific = regionSpecific;
+        this.segmentEquity = segmentEquity;
+        this.categorySizeStyle = categorySizeStyle;
+        this.strategy = strategy;
+        this.weightingScheme = weightingScheme;
+    }
 }

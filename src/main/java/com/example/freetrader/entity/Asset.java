@@ -20,9 +20,13 @@ public class Asset {
     @UuidGenerator
     private String id;
 
+    private String name;
+
     private Integer rank;
 
     private String openPrice;
+
+    private String Price;
 
     private String volume;
 
@@ -58,4 +62,7 @@ public class Asset {
 
     @ManyToOne
     private Client client;
+
+    public Asset(String id, String name, Integer rank, String openPrice, String price, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year) {
+    }
 }
