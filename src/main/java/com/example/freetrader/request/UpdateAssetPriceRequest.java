@@ -1,8 +1,10 @@
-package com.example.freetrader.response;
+package com.example.freetrader.request;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record CreateAssetResponse(
+public record UpdateAssetPriceRequest (
+
+
         @NotBlank String id,
 
         @NotBlank String name,
@@ -11,7 +13,7 @@ public record CreateAssetResponse(
 
         String openPrice,
 
-        Double price,
+        String price,
 
         String volume,
 
@@ -25,7 +27,7 @@ public record CreateAssetResponse(
 
         String assetsUnderManagement,
 
-        Double shares,
+        String shares,
 
         Double marketCap,
 
@@ -38,6 +40,6 @@ public record CreateAssetResponse(
         Double change1Year,
 
         Integer year
-){
+) {
 
-        }
+}

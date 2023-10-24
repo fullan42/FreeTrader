@@ -39,4 +39,6 @@ public class Market {
 
     private Integer numberOfListings;
 
+    public Market(String location, String currency, String owner, Double marketCap, String foundedDate) {
+    }
 }

@@ -26,7 +26,7 @@ public class Asset {
 
     private String openPrice;
 
-    private String Price;
+    private Double Price;
 
     private String volume;
 
@@ -40,7 +40,7 @@ public class Asset {
 
     private String assetsUnderManagement;
 
-    private String shares;
+    private Double shares;
 
     private Double marketCap;
 
