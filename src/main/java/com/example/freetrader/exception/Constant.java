@@ -5,4 +5,9 @@ public class Constant {
             "Asset Not Found";
     public static final String Asset_Already_Exist=
             "Asset Already Exist";
+    public static final String Market_Already_Exist=
+            "Market Already Exist";
+    public static final String Market_Not_Found=
+            "Market Not Found";
+
 }

@@ -1,18 +1,18 @@
 package com.example.freetrader.controller;
 
 import com.example.freetrader.entity.Asset;
-import com.example.freetrader.exception.AssetAlreadyExistException;
-import com.example.freetrader.exception.AssetNotFoundException;
+import com.example.freetrader.entity.Market;
 import com.example.freetrader.repository.AssetRepository;
 import com.example.freetrader.request.CreateAssetRequest;
 import com.example.freetrader.response.CreateAssetResponse;
 import com.example.freetrader.service.AssetService;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.freetrader.service.MarketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,10 +21,11 @@ public class AssetController {
 
     private final AssetRepository assetRepository;
     private final AssetService assetService;
-    @Autowired
-    public AssetController(AssetRepository assetRepository, AssetService assetService) {
-        this.assetRepository = assetRepository;
+    private final MarketService marketService;
 
+    public AssetController(AssetRepository assetRepository, AssetService assetService, MarketService marketService) {
+        this.assetRepository = assetRepository;
+        this.marketService = marketService;
         this.assetService = assetService;
     }
     @PatchMapping("/{id}/update-price")
@@ -67,7 +68,16 @@ public class AssetController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @GetMapping("/market/{marketId}")
+    public ResponseEntity<List<Asset>> getAssetsInMarket(@PathVariable String marketId) {
+        Optional<Market> market = marketService.findMarketById(marketId);
+        if (market != null) {
+            List<Asset> assets = assetService.getAllAssetsInMarket(market);
+            return ResponseEntity.ok(assets);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }

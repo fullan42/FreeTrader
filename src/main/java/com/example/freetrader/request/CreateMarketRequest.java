@@ -3,6 +3,8 @@ package com.example.freetrader.request;
 import jakarta.validation.constraints.NotBlank;
 
 public record CreateMarketRequest(
+         @NotBlank String id,
+
          @NotBlank String location,
 
          @NotBlank String currency,

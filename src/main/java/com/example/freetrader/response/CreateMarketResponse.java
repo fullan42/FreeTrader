@@ -3,6 +3,8 @@ package com.example.freetrader.response;
 import jakarta.validation.constraints.NotBlank;
 
 public record CreateMarketResponse(
+        @NotBlank String id,
+
         @NotBlank String location,
 
         @NotBlank String currency,

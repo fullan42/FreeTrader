@@ -1,19 +1,17 @@
 package com.example.freetrader.service;
 import com.example.freetrader.converters.AssetConverter;
 import com.example.freetrader.entity.Asset;
+import com.example.freetrader.entity.Market;
 import com.example.freetrader.exception.AssetAlreadyExistException;
 import com.example.freetrader.exception.AssetNotFoundException;
 import com.example.freetrader.exception.Constant;
 import com.example.freetrader.repository.AssetRepository;
 import com.example.freetrader.request.CreateAssetRequest;
 import com.example.freetrader.response.CreateAssetResponse;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.List;
 import java.util.Optional;
@@ -118,4 +116,7 @@ public class AssetService {
         return assetRepository.save(tempAsset);
     }
 
+    public List<Asset> getAllAssetsInMarket(Optional<Market> market) {
+        return assetRepository.findByMarket(market);
+    }
 }

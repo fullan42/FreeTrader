@@ -41,4 +41,7 @@ public class Market {
 
     public Market(String location, String currency, String owner, Double marketCap, String foundedDate) {
     }
+
+    public Market(String id, String location, String currency, String owner, Double marketCap, String foundedDate) {
+    }
 }
