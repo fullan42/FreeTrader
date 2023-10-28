@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/markets")
 public class MarketController {
     public MarketController(MarketService marketService) {
         this.marketService = marketService;
@@ -16,17 +17,17 @@ public class MarketController {
 
     private final MarketService marketService;
 
-    @PostMapping("create-market")
+    @PostMapping("/create-market")
     public ResponseEntity<CreateMarketResponse> createAssetResponse(@RequestBody CreateMarketRequest request) {
         CreateMarketResponse response = marketService.createMarket(request);
-        return new ResponseEntity<CreateMarketResponse>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
 
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> deleteMarket(@PathVariable Market market) {
+    public ResponseEntity<?> deleteMarket(@PathVariable String id) {
 
-        marketService.deleteMarket(market);
+        marketService.deleteMarket(id);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }

@@ -28,17 +28,17 @@ public class MarketService {
         return marketRepository.findById(id);
     }
     public CreateMarketResponse createMarket(CreateMarketRequest request){
-        if (marketRepository.existsById(request.id())){
-            Market market= new Market(request.id(),request.location(), request.currency(), request.owner(), request.marketCap(), request.foundedDate());
-            return marketConverter.marketConverter(market);
-        }else{
-            throw new MarketAlreadyExistException(Constant.Market_Already_Exist);
-        }
+
+            Market market= new Market(request.location(), request.currency(), request.owner(), request.marketCap(), request.foundedDate(), request.name(),request.numberOfListings());
+            System.out.println(request);
+            Market save = marketRepository.save(market);
+            return marketConverter.marketConverter(save);
+
     }
 
-    public void deleteMarket(Market market){
-        if (marketRepository.findById(market.getId()).isPresent()){
-            marketRepository.deleteById(market.getId());
+    public void deleteMarket(String id){
+        if (marketRepository.findById(id).isPresent()){
+            marketRepository.deleteById(id);
         }else{
             throw new MarketNotFoundException(Constant.Market_Not_Found);
         }

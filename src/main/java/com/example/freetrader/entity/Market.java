@@ -15,8 +15,8 @@ import java.util.List;
 @Data
 public class Market {
     @Id
-    @UuidGenerator
-    String id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     private String location;
 
@@ -28,6 +28,8 @@ public class Market {
 
     private String foundedDate;
 
+    private String name;
+
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Index> indexList;
 
@@ -36,6 +38,16 @@ public class Market {
 
     @OneToMany(mappedBy = "market",cascade = CascadeType.DETACH,orphanRemoval = true)
     private List<ETF> ETFList;
+
+    public Market(String location, String currency, String owner, Double marketCap, String foundedDate, String name, Integer numberOfListings) {
+        this.location = location;
+        this.currency = currency;
+        this.owner = owner;
+        this.marketCap = marketCap;
+        this.foundedDate = foundedDate;
+        this.name = name;
+        this.numberOfListings = numberOfListings;
+    }
 
     private Integer numberOfListings;
 

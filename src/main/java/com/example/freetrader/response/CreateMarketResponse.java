@@ -1,18 +1,25 @@
 package com.example.freetrader.response;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 
 public record CreateMarketResponse(
-        @NotBlank String id,
+         String id,
 
-        @NotBlank String location,
+         String location,
 
-        @NotBlank String currency,
+         String currency,
 
-        @NotBlank String owner,
+         String owner,
 
-        @NotBlank Double marketCap,
+         Double marketCap,
 
-        @NotBlank String foundedDate
+         String foundedDate,
+
+         String name,
+
+         Integer numberOfListings
 ) {
 }

@@ -34,7 +34,7 @@ public class AssetController {
             return new ResponseEntity<>(asset, HttpStatus.OK);
 
     }
-    @PostMapping("create-asset")
+    @PostMapping("/create-asset")
     public ResponseEntity<CreateAssetResponse> createAssetResponse(@RequestBody CreateAssetRequest request) {
             CreateAssetResponse response = assetService.createAsset(request);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -52,7 +52,7 @@ public class AssetController {
 
     }
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> deleteAssetById(@PathVariable Asset asset) {
+    public ResponseEntity<Void> deleteAssetById(@PathVariable Asset asset) {
 
             assetService.deleteAssetById(asset.getId());
             return new ResponseEntity<>(HttpStatus.OK);

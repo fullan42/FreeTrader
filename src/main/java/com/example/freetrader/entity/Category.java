@@ -14,8 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 public class Category {
     @Id
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
 
     @ManyToMany
     @JoinTable(

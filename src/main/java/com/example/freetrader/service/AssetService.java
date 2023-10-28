@@ -71,11 +71,10 @@ public class AssetService {
     }
 
     public CreateAssetResponse createAsset(CreateAssetRequest request){
-        if(assetRepository.existsById(request.id())){
+        if(assetRepository.findByName(request.name()).isEmpty()){
             throw new AssetAlreadyExistException(Constant.Asset_Already_Exist);
         }
         Asset asset= new Asset(
-                request.id(),
                 request.name(),
                 request.rank(),
                 request.openPrice(),

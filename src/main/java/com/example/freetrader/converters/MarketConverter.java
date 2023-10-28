@@ -8,10 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@Converter
 public class MarketConverter {
     public CreateMarketResponse marketConverter(Market market){
-        CreateMarketResponse marketResponse= new CreateMarketResponse(market.getId(), market.getCurrency(), market.getOwner(), market.getMarketCap(), market.getFoundedDate());
+        CreateMarketResponse marketResponse= new CreateMarketResponse(market.getId(),market.getLocation(), market.getCurrency(), market.getOwner(), market.getMarketCap(), market.getFoundedDate(), market.getName(), market.getNumberOfListings());
         return marketResponse;
     }
 

@@ -3,7 +3,6 @@ package com.example.freetrader.request;
 import jakarta.validation.constraints.NotBlank;
 
 public record CreateMarketRequest(
-         @NotBlank String id,
 
          @NotBlank String location,
 
@@ -13,6 +12,14 @@ public record CreateMarketRequest(
 
          @NotBlank Double marketCap,
 
-         @NotBlank String foundedDate
-) {
+         @NotBlank String foundedDate,
+
+         String name,
+
+         Integer numberOfListings
+         ) {
 }
+
+
+
+

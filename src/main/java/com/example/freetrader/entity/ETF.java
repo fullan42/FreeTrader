@@ -47,9 +47,8 @@ public class ETF extends Asset {
 
     private String weightingScheme;
 
-
-    public ETF(String id, String name, Integer rank, String openPrice, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year, List<Category> categories, Market market, Client client, String issuer, String brand, String expenseRatio, Date inception, String trackedThing, String assetClass, String assetClassSize, String assetClassStyle, String regionGeneral, String regionSpecific, String segmentEquity, String categorySizeStyle, String strategy, String weightingScheme) {
-        super(id, name, rank, openPrice, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, market, client);
+    public ETF(String id, String name, Integer rank, String openPrice, Double Price, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, Double shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year, List<Category> categories, Market market, Client client, String issuer, String brand, String expenseRatio, Date inception, String trackedThing, String assetClass, String assetClassSize, String assetClassStyle, String regionGeneral, String regionSpecific, String segmentEquity, String categorySizeStyle, String strategy, String weightingScheme) {
+        super(id, name, rank, openPrice, Price, volume, dayLow, dayHigh, week52Low, week52High, assetsUnderManagement, shares, marketCap, country, sharePrice, change1Day, change1Year, year, categories, market, client);
         this.issuer = issuer;
         this.brand = brand;
         this.expenseRatio = expenseRatio;

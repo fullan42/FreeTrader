@@ -17,7 +17,7 @@ import java.util.List;
 public class Asset {
 
     @Id
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String name;
@@ -26,7 +26,7 @@ public class Asset {
 
     private String openPrice;
 
-    private Double Price;
+    private Double price;
 
     private String volume;
 
@@ -63,6 +63,23 @@ public class Asset {
     @ManyToOne
     private Client client;
 
-    public Asset(String id, String name, Integer rank, String openPrice, String price, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, String shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year) {
+    public Asset(String name, Integer rank, String openPrice, Double price, String volume, String dayLow, String dayHigh, String week52Low, String week52High, String assetsUnderManagement, Double shares, Double marketCap, String country, Integer sharePrice, Double change1Day, Double change1Year, Integer year) {
+        this.name = name;
+        this.rank = rank;
+        this.openPrice = openPrice;
+        this.price = price;
+        this.volume = volume;
+        this.dayLow = dayLow;
+        this.dayHigh = dayHigh;
+        this.week52Low = week52Low;
+        this.week52High = week52High;
+        this.assetsUnderManagement = assetsUnderManagement;
+        this.shares = shares;
+        this.marketCap = marketCap;
+        this.country = country;
+        this.sharePrice = sharePrice;
+        this.change1Day = change1Day;
+        this.change1Year = change1Year;
+        this.year = year;
     }
 }

@@ -4,16 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 
 public record CreateAssetRequest(
 
-
-        @NotBlank String id,
-
         @NotBlank String name,
 
         @NotBlank Integer rank,
 
         String openPrice,
 
-        String price,
+        Double price,
 
         String volume,
 
@@ -27,7 +24,7 @@ public record CreateAssetRequest(
 
         String assetsUnderManagement,
 
-        String shares,
+        Double shares,
 
         Double marketCap,
 

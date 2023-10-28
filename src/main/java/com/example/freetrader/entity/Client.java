@@ -1,8 +1,6 @@
 package com.example.freetrader.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
@@ -14,8 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 public class Client {
     @Id
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
 
     private String name;
 
