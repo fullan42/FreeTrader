@@ -9,5 +9,7 @@ public class Constant {
             "Market Already Exist";
     public static final String Market_Not_Found=
             "Market Not Found";
+    public static final String Stock_Not_Found=
+            "Stock Not Found";
 
 }
