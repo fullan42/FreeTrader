@@ -39,6 +39,9 @@ public class Market {
     @OneToMany(mappedBy = "market",cascade = CascadeType.DETACH,orphanRemoval = true)
     private List<ETF> ETFList;
 
+    @OneToMany(mappedBy = "market",cascade = CascadeType.DETACH,orphanRemoval = true)
+    private List<Asset> AssetList;
+
     public Market(String location, String currency, String owner, Double marketCap, String foundedDate, String name, Integer numberOfListings) {
         this.location = location;
         this.currency = currency;
