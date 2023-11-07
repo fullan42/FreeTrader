@@ -73,7 +73,6 @@ public class MarketService {
 
         return ETFS;
     }
-
     public List<Index> getAllIndicesInMarket(String marketId) {
         List<Asset> assets = getAllAssetsInMarket(marketId);
         List<Index> indices = new ArrayList<>();
@@ -84,6 +83,4 @@ public class MarketService {
                 .collect(Collectors.toList());
         return indices;
     }
-
-
 }

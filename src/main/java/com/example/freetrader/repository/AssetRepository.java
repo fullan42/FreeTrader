@@ -11,6 +11,7 @@ public interface AssetRepository extends JpaRepository<Asset,String> {
 
     Optional<Asset> findByName(String name);
 
+    List<Asset> findByNameContainingIgnoreCase(String name);
 
     List<Asset> findByMarket(Optional<Market> market);
 

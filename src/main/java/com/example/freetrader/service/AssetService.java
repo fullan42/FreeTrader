@@ -25,7 +25,9 @@ public class AssetService {
     public Page<Asset> getAllAsset(Pageable pageable) {
         return assetRepository.findAll(pageable);
     }
-
+    public List<Asset> searchAssetsByName(String name) {
+        return assetRepository.findByNameContainingIgnoreCase(name);
+    }
     public Optional<Asset> findByName(String name) {
         if (assetRepository.findByName(name).isPresent()) {
             return assetRepository.findByName(name);
@@ -33,7 +35,6 @@ public class AssetService {
             throw new AssetNotFoundException(Constant.Asset_Not_Found);
         }
     }
-
     //sadece günlük değişken olan şeyler burada
     public Asset updateAssetPrice(Asset asset) {
         Optional<Asset> optionalAsset = assetRepository.findById(asset.getId());
@@ -50,7 +51,6 @@ public class AssetService {
             throw new AssetNotFoundException(Constant.Asset_Not_Found);
         }
     }
-
     public Asset updateAssetMarketCap(Asset asset){
         Optional<Asset> asset1 = assetRepository.findById(asset.getId());
 
@@ -69,7 +69,6 @@ public class AssetService {
             throw new AssetNotFoundException(Constant.Asset_Not_Found);
         }
     }
-
     public CreateAssetResponse createAsset(CreateAssetRequest request){
         if(assetRepository.findByName(request.name()).isEmpty()){
             throw new AssetAlreadyExistException(Constant.Asset_Already_Exist);
@@ -91,12 +90,12 @@ public class AssetService {
                 request.sharePrice(),
                 request.change1Day(),
                 request.change1Year(),
-                request.year());
+                request.year(),
+                request.categories(),
+                request.market(),
+                request.client())
         return assetConverter.assetConverter(asset);
-
-
     }
-
     public void deleteAssetById(String id) {
         if (assetRepository.findById(id).isPresent()) {
             assetRepository.deleteById(id);
@@ -104,7 +103,6 @@ public class AssetService {
             throw new AssetNotFoundException(Constant.Asset_Not_Found);
         }
     }
-
     public Asset updateAssetShares(Asset asset){
         Optional<Asset> existingAsset = assetRepository.findById(asset.getId());
 
@@ -114,8 +112,7 @@ public class AssetService {
 
         return assetRepository.save(tempAsset);
     }
-
-    public List<Asset> getAllAssetsInMarket(Optional<Market> market) {
+    public List<Asset> getAllAssetsInMarket(Optional<Market> market){
         return assetRepository.findByMarket(market);
     }
 }

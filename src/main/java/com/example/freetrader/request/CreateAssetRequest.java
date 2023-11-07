@@ -1,6 +1,11 @@
 package com.example.freetrader.request;
 
+import com.example.freetrader.entity.Category;
+import com.example.freetrader.entity.Client;
+import com.example.freetrader.entity.Market;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
 
 public record CreateAssetRequest(
 
@@ -36,7 +41,13 @@ public record CreateAssetRequest(
 
         Double change1Year,
 
-        Integer year
+        Integer year,
+
+        List<Category> categories,
+
+        Market market,
+
+        Client client
 ) {
 
 }

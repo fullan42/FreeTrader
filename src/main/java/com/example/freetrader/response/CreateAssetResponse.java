@@ -1,10 +1,13 @@
 package com.example.freetrader.response;
 
+import com.example.freetrader.entity.Category;
+import com.example.freetrader.entity.Client;
+import com.example.freetrader.entity.Market;
 import jakarta.validation.constraints.NotBlank;
 
-public record CreateAssetResponse(
-        @NotBlank String id,
+import java.util.List;
 
+public record CreateAssetResponse(
         @NotBlank String name,
 
         @NotBlank Integer rank,
@@ -37,7 +40,13 @@ public record CreateAssetResponse(
 
         Double change1Year,
 
-        Integer year
+        Integer year,
+
+        List<Category> categories,
+
+        Market market,
+
+        Client client
 ){
 
         }
